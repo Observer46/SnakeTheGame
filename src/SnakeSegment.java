@@ -15,7 +15,7 @@ public class SnakeSegment extends AbstractMapElement {
     }
 
     @Override
-    public void onCollision() {
-        //DIE
+    public boolean onCollision() {
+        return true;
     }
 }

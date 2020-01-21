@@ -18,7 +18,6 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
         this.width=map.getUpperRight().x * AbstractMapElement.tileSize;
         super.setPreferredSize(new Dimension(this.width,this.height));
         this.map = map;
-
         super.addKeyListener(this);
         start();
     }
@@ -44,16 +43,13 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
         graphics.setColor(Color.BLACK);
         graphics.fillRect(0,0,this.width,this.height);
         Map<Vector2D, IMapElement> objects = this.map.getObjects();
-        for (IMapElement object : objects.values()) {
+        for (IMapElement object : objects.values())
             object.draw(graphics);
-            System.out.println(object);
-        }
-        System.out.println("---");
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
-
+        //Needs to be in order to implement interface
     }
 
     @Override
@@ -63,13 +59,21 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+        //Needs to be in order to implement interface
     }
 
     @Override
     public void run() {
         while (this.running){
-            this.map.tick();
+            boolean gameOver = this.map.tick();
+            if (gameOver)
+                this.stop();
+            try {
+                this.thread.sleep(100);
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+                ex.getMessage();
+            }
             super.repaint();
         }
     }

@@ -2,29 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89a4aff4-3653-4e8d-82c1-004e530ff176" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Snake/AbstractMap2D.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Snake/AbstractMap2D.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Snake/Apple.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Snake/Apple.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Snake/GameVisualizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Snake/GameVisualizer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Snake/IMap2D.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Snake/IMap2D.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Snake/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Snake/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Snake/Obstacle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Snake/Obstacle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Snake/SnakeSegment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Snake/SnakeSegment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Snake/Visualizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Snake/Visualizer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AbstractMap2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AbstractMap2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Apple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Apple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameVisualizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameVisualizer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IMap2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMap2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/IMapElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMapElement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovementDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovementDirection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Obstacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Obstacle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RectangleMap2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RectangleMap2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Snake.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SnakeSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SnakeSegment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vector2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vector2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Visualizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Visualizer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +42,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ProjektUpdated/lab3/EvolutionGenerator-" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -87,7 +80,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1577751612297</updated>
-      <workItem from="1579609417867" duration="8417000" />
+      <workItem from="1579609417867" duration="14812000" />
     </task>
     <servers />
   </component>

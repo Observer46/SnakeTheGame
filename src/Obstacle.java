@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.sql.Struct;
 
 public class Obstacle extends AbstractMapElement{
 
@@ -18,7 +19,7 @@ public class Obstacle extends AbstractMapElement{
 
 
     @Override
-    public void onCollision() {
-        //DIE
+    public boolean onCollision() {
+        return true;
     }
 }

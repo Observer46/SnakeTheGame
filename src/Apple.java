@@ -15,7 +15,8 @@ public class Apple extends AbstractMapElement {
     }
 
     @Override
-    public void onCollision() {
+    public boolean onCollision() {
         super.map.removeElement(this);
+        return false;
     }
 }

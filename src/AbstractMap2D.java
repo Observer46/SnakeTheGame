@@ -33,6 +33,7 @@ public class AbstractMap2D implements IMap2D{
         this.objects.remove(elem.getPosition(), elem);
         if(elem instanceof Apple)
             this.createAnotherApple();
+
         else if (elem instanceof Obstacle) {
             Obstacle obstacle = (Obstacle) elem;
             this.obstacles.remove(obstacle);
@@ -47,7 +48,7 @@ public class AbstractMap2D implements IMap2D{
 
     @Override
     public Object objectAt(Vector2D position) {
-        return objects.get(position);
+        return this.objects.get(position);
     }
 
     @Override
@@ -88,12 +89,16 @@ public class AbstractMap2D implements IMap2D{
     }
 
     @Override
-    public void tick() {
-        this.snake.tick();
+    public boolean tick() {
+        return this.snake.tick();   //Returns true when game is over
     }
 
     @Override
     public Snake getSnake() {
         return this.snake;
+    }
+
+    public List<Obstacle> getObstacles() {
+        return this.obstacles;
     }
 }
