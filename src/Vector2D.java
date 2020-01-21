@@ -6,4 +6,8 @@ public class Vector2D {
         this.x=x;
         this.y=y;
     }
+
+    public Vector2D subtract(Vector2D other){
+        return new Vector2D(this.x-other.x,this.y - other.y);
+    }
 }

@@ -1,3 +1,5 @@
+import java.awt.event.KeyEvent;
+
 public enum MovementDirection {
     UP,
     RIGHT,
@@ -16,6 +18,22 @@ public enum MovementDirection {
                 return !(newMoveDirection==MovementDirection.RIGHT);
             default:
                 throw new IndexOutOfBoundsException("Unknown movement direction: " + this);
+        }
+    }
+
+    public static MovementDirection keyPressedToDirection(KeyEvent event){
+        int keyCode = event.getKeyCode();
+        switch (keyCode){
+            case KeyEvent.VK_RIGHT:
+                return MovementDirection.RIGHT;
+            case KeyEvent.VK_LEFT:
+                return MovementDirection.LEFT;
+            case KeyEvent.VK_UP:
+                return MovementDirection.UP;
+            case KeyEvent.VK_DOWN:
+                return MovementDirection.DOWN;
+            default:
+                return null; // Throwing exception would stop programme on pressing any other key
         }
     }
 }
