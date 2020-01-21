@@ -1,5 +1,9 @@
 # SnakeTheGame
-Drugi projekt z przedmiotu Programowanie Obiektowe
+### Drugi projekt z przedmiotu Programowanie Obiektowe
+Projekt jest aktualnie zwykłąd implementacją gry 'Snake'.  
+Poniżej znajduje się wymyślona przeze mnie modyfikacja rozgrywki, której NIE uda się zrealizować przed sesją :(  
+Cel - przeżyć jak najdłużej (jakoś powinno uwzględniać ilośc zjedzonych jabłek/robaków)  
+  
 Planowane sterowanie (góra, lewo, dół, prawo):
 * Gracz 1 - W,A,S,D
 * Gracz 2 - <strzałki>
