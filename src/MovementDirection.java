@@ -36,4 +36,19 @@ public enum MovementDirection {
                 return null; // Throwing exception would stop programme on pressing any other key
         }
     }
+
+    public Vector2D unitVector(){
+        switch (this){
+            case RIGHT:
+                return new Vector2D(1,0);
+            case UP:
+                return new Vector2D(0,-1);
+            case DOWN:
+                return new Vector2D(0,1);
+            case LEFT:
+                return new Vector2D(-1,0);
+            default:
+                throw new IllegalArgumentException("Cannot convert unknown direction to unit vector!");
+        }
+    }
 }

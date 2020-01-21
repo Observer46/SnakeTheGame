@@ -11,28 +11,44 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
     private boolean running;
     private Thread thread;
 
-    public GameVisualizer(int width, int height){
+    public GameVisualizer(IMap2D map){
+        AbstractMapElement.tileSize = 20;
         super.setFocusable(true);
-        super.setPreferredSize(new Dimension(width,height));
-        this.height=height;
-        this.width=width;
-        super.addKeyListener(this);
+        this.height=map.getUpperRight().y * AbstractMapElement.tileSize;
+        this.width=map.getUpperRight().x * AbstractMapElement.tileSize;
+        super.setPreferredSize(new Dimension(this.width,this.height));
+        this.map = map;
 
+        super.addKeyListener(this);
         start();
     }
 
     public void start(){
         this.running = true;
+        this.thread = new Thread(this);
+        this.thread.start();
     }
 
     public void stop(){
         this.running = false;
+        try{
+            thread.join();
+        } catch (InterruptedException ex){
+            ex.printStackTrace();
+            System.out.println(ex.getMessage());
+        }
     }
 
-    public void paint(Graphics graphics) { // Sypie błędami bruh
+    public void paint(Graphics graphics) {
+        graphics.clearRect(0,0,this.width,this.height);
+        graphics.setColor(Color.BLACK);
+        graphics.fillRect(0,0,this.width,this.height);
         Map<Vector2D, IMapElement> objects = this.map.getObjects();
-        for (IMapElement object : objects.values())
+        for (IMapElement object : objects.values()) {
             object.draw(graphics);
+            System.out.println(object);
+        }
+        System.out.println("---");
     }
 
     @Override
@@ -41,8 +57,8 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
-
+    public void keyPressed(KeyEvent pressedKey) {
+        this.map.getSnake().changeDirection(pressedKey);
     }
 
     @Override
@@ -52,6 +68,9 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
 
     @Override
     public void run() {
-
+        while (this.running){
+            this.map.tick();
+            super.repaint();
+        }
     }
 }

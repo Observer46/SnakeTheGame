@@ -11,6 +11,11 @@ public class Apple extends AbstractMapElement {
     @Override
     public void draw(Graphics graphics) {
         graphics.setColor(Color.RED);
-        graphics.fillRect(super.position.x*AbstractMapElement.tileSize,super.position.y*AbstractMapElement.tileSize,AbstractMapElement.tileSize,AbstractMapElement.tileSize);
+        graphics.fillRect(super.position.x*tileSize,super.position.y*tileSize,tileSize,tileSize);
+    }
+
+    @Override
+    public void onCollision() {
+        super.map.removeElement(this);
     }
 }
