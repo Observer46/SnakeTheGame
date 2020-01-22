@@ -8,7 +8,7 @@ public class Menu {
     private JButton resetButton = new JButton("RESET");
 
     public Menu(GameVisualizer gameVisualizer){
-        this.gameVisualizer=gameVisualizer;
+        this.gameVisualizer = gameVisualizer;
         this.setupButton(this.startButton);
         this.setupButton(this.resetButton);
         startButton.addActionListener(new ActionListener() {
@@ -43,7 +43,7 @@ public class Menu {
 
     public void setupButton(JButton button){
         Vector2D frameBoundaries = this.gameVisualizer.getMap().getUpperRight();
-        button.setBounds(AbstractMapElement.tileSize*frameBoundaries.x/2-50,AbstractMapElement.tileSize*frameBoundaries.y/2 - 25,100,50);
+        button.setBounds(AbstractMapElement.tileSize * frameBoundaries.x/2 - 50,AbstractMapElement.tileSize * frameBoundaries.y/2 - 25,100,50);
     }
 
     public void resetTheGame(){

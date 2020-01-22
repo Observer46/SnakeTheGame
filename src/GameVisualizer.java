@@ -18,8 +18,8 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
     public GameVisualizer(IMap2D map){
         AbstractMapElement.tileSize = 20;
         super.setFocusable(true);
-        this.height=map.getUpperRight().y * AbstractMapElement.tileSize;
-        this.width=map.getUpperRight().x * AbstractMapElement.tileSize;
+        this.height = map.getUpperRight().y * AbstractMapElement.tileSize;
+        this.width = map.getUpperRight().x * AbstractMapElement.tileSize;
         super.setPreferredSize(new Dimension(this.width,this.height));
         this.map = map;
         super.addKeyListener(this);
@@ -41,13 +41,12 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
         System.out.println("SCORE: " + score);
         this.menu.getResetButton().setVisible(true);
         super.repaint();
-        try{
-            thread.join();
-        } catch (InterruptedException ex){
-            ex.printStackTrace();
-            System.out.println(ex.getMessage());
-        }
-
+//        try{
+//            thread.join();
+//        } catch (InterruptedException ex){
+//            ex.printStackTrace();
+//            System.out.println(ex.getMessage());
+//        }
     }
 
     public void paint(Graphics graphics) {
@@ -78,8 +77,8 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
     public void run() {
         while (this.running){
             this.map.tick();
-            if (GameVisualizer.gameOver)
-                this.stop();
+            if (GameVisualizer.gameOver) this.stop();
+
             try {
                 this.thread.sleep(100);
             } catch (InterruptedException ex) {

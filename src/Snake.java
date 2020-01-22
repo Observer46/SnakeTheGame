@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Snake  {
     private List<SnakeSegment> snakeSegments = new ArrayList<>();
-    private MovementDirection orientation = MovementDirection.DOWN;
+    private MovementDirection orientation = MovementDirection.LEFT;
     private IMap2D map;
     private boolean growSegment = false;
     private MovementDirection queuedOrientation = null;
