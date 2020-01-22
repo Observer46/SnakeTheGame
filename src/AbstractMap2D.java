@@ -2,7 +2,7 @@ import javax.swing.text.Position;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class AbstractMap2D implements IMap2D{
+public abstract class AbstractMap2D implements IMap2D{
     protected Vector2D lowerLeft = new Vector2D(0,0);
     protected Vector2D upperRight;
     protected Map<Vector2D, IMapElement> objects = new ConcurrentHashMap<>();
@@ -10,6 +10,8 @@ public class AbstractMap2D implements IMap2D{
     protected Apple apple;
     protected List<Obstacle> obstacles = new ArrayList<>();
     protected Random rand = new Random();
+    protected Vector2D startPosition;
+
 
 
     public void addElement(IMapElement elem){
@@ -89,8 +91,8 @@ public class AbstractMap2D implements IMap2D{
     }
 
     @Override
-    public boolean tick() {
-        return this.snake.tick();   //Returns true when game is over
+    public void tick() {
+        this.snake.tick();
     }
 
     @Override
@@ -100,5 +102,14 @@ public class AbstractMap2D implements IMap2D{
 
     public List<Obstacle> getObstacles() {
         return this.obstacles;
+    }
+
+    @Override
+    public boolean inBoundaries(Vector2D position) {
+        return position.precedes(this.upperRight) && position.follows(this.lowerLeft);
+    }
+
+    public void removeFromHashMap(IMapElement element){
+        this.objects.remove(element.getPosition(),element);
     }
 }

@@ -11,7 +11,9 @@ public interface IMap2D {
      Vector2D getUpperRight();
      void createAnotherApple();
      void createObstacle();
-     boolean tick();
+     void tick();
      Snake getSnake();
      List<Obstacle> getObstacles();
+     boolean inBoundaries(Vector2D position);
+     void resetMap();
 }

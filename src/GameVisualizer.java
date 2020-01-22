@@ -9,7 +9,11 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
     private int width;
     private IMap2D map;
     private boolean running;
+    private Menu menu;
     private Thread thread;
+    public static int score = 0;
+    public static boolean gameOver = false;
+
 
     public GameVisualizer(IMap2D map){
         AbstractMapElement.tileSize = 20;
@@ -19,7 +23,10 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
         super.setPreferredSize(new Dimension(this.width,this.height));
         this.map = map;
         super.addKeyListener(this);
-        start();
+    }
+
+    public void setMenu(Menu menu){
+        this.menu = menu;
     }
 
     public void start(){
@@ -30,12 +37,17 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
 
     public void stop(){
         this.running = false;
+        System.out.println("GAME OVER");
+        System.out.println("SCORE: " + score);
+        this.menu.getResetButton().setVisible(true);
+        super.repaint();
         try{
             thread.join();
         } catch (InterruptedException ex){
             ex.printStackTrace();
             System.out.println(ex.getMessage());
         }
+
     }
 
     public void paint(Graphics graphics) {
@@ -54,7 +66,7 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent pressedKey) {
-        this.map.getSnake().changeDirection(pressedKey);
+        this.map.getSnake().queueDirection(pressedKey);
     }
 
     @Override
@@ -65,8 +77,8 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
     @Override
     public void run() {
         while (this.running){
-            boolean gameOver = this.map.tick();
-            if (gameOver)
+            this.map.tick();
+            if (GameVisualizer.gameOver)
                 this.stop();
             try {
                 this.thread.sleep(100);
@@ -76,5 +88,14 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
             }
             super.repaint();
         }
+    }
+
+    public void resetGame(){
+        this.map.resetMap();
+        this.start();
+    }
+
+    public IMap2D getMap() {
+        return this.map;
     }
 }

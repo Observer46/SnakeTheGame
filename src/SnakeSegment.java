@@ -15,7 +15,7 @@ public class SnakeSegment extends AbstractMapElement {
     }
 
     @Override
-    public boolean onCollision() {
-        return true;
+    public void onCollision() {
+        GameVisualizer.gameOver=true;
     }
 }

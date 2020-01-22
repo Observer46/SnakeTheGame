@@ -34,4 +34,12 @@ public class Vector2D {
         Vector2D that = (Vector2D) other;
         return (this.x==that.x && this.y==that.y) ? true : false;
     }
+
+    public boolean precedes(Vector2D other){    // Określone tak, bo pola ponumerowane są 0, 1,...,N-1 - pozwala to prościej "zawijać mapę"
+        return (this.x<other.x && this.y<other.y) ? true : false;
+    }
+
+    public boolean follows(Vector2D other){
+        return (this.x>=other.x && this.y>=other.y) ? true : false;
+    }
 }

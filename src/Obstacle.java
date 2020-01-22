@@ -19,7 +19,7 @@ public class Obstacle extends AbstractMapElement{
 
 
     @Override
-    public boolean onCollision() {
-        return true;
+    public void onCollision() {
+        GameVisualizer.gameOver=true;
     }
 }
