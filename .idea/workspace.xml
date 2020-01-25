@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="89a4aff4-3653-4e8d-82c1-004e530ff176" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Bug.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Eatable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Snake/GameVisualizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Snake/GameVisualizer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Snake/Snake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Snake/Snake.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AbstractMap2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AbstractMap2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Apple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Apple.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameVisualizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameVisualizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IMap2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMap2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RectangleMap2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RectangleMap2D.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Snake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Visualizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Visualizer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -34,6 +42,9 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ProjektUpdated/lab3/EvolutionGenerator-" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -72,7 +83,9 @@
       <option name="presentableId" value="Default" />
       <updated>1577751612297</updated>
       <workItem from="1579609417867" duration="22260000" />
-      <workItem from="1579692674243" duration="4042000" />
+      <workItem from="1579692674243" duration="4247000" />
+      <workItem from="1579776997181" duration="1207000" />
+      <workItem from="1579877815728" duration="9491000" />
     </task>
     <servers />
   </component>

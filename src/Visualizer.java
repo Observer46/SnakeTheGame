@@ -8,6 +8,7 @@ public class Visualizer {
     private Menu menu;
 
     public  Visualizer(IMap2D map){
+        this.window.setResizable(false);
         this.gameVisualizer = new GameVisualizer(map);
         this.window.add(gameVisualizer);
         this.window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -19,5 +20,11 @@ public class Visualizer {
         this.gameVisualizer.setMenu(this.menu);
         this.window.add(this.menu.getStartButton());
         this.window.add(this.menu.getResetButton());
+        this.window.add(this.menu.getScoreText());
+        this.window.add(this.menu.getGameOverText());
+        this.window.add(this.menu.getDecoy());
+
+
+
     }
 }

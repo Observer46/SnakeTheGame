@@ -1,4 +1,3 @@
-import javax.swing.text.Position;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -7,10 +6,10 @@ public abstract class AbstractMap2D implements IMap2D{
     protected Vector2D upperRight;
     protected Map<Vector2D, IMapElement> objects = new ConcurrentHashMap<>();
     protected Snake snake;
-    protected Apple apple;
     protected List<Obstacle> obstacles = new ArrayList<>();
     protected Random rand = new Random();
     protected Vector2D startPosition;
+    protected List<Eatable> eatables = new ArrayList<>();
 
 
 
@@ -21,9 +20,9 @@ public abstract class AbstractMap2D implements IMap2D{
             if (this.snake != null)
                 this.snake.addSegment(segment);
         }
-        else if(elem instanceof Apple){
-            Apple apple = (Apple) elem;
-            this.apple = apple;
+        else if(elem instanceof Eatable){
+            Eatable food = (Eatable) elem;
+            this.eatables.add(food);
         }
         else if (elem instanceof Obstacle) {
             Obstacle obstacle = (Obstacle) elem;
@@ -33,8 +32,13 @@ public abstract class AbstractMap2D implements IMap2D{
 
     public void removeElement(IMapElement elem){
         this.objects.remove(elem.getPosition(), elem);
-        if(elem instanceof Apple)
-            this.createAnotherApple();
+        if(elem instanceof Eatable) {
+            Eatable food = (Eatable) elem;
+            this.eatables.remove(food);
+            this.createNewFood();
+            if (elem instanceof Bug)
+                this.createNewFood();
+        }
 
         else if (elem instanceof Obstacle) {
             Obstacle obstacle = (Obstacle) elem;
@@ -63,12 +67,19 @@ public abstract class AbstractMap2D implements IMap2D{
         int xCoord;
         int yCoord;
         Vector2D unoccupiedPosition;
+
         do {
             xCoord = rand.nextInt(upperRight.x);
             yCoord = rand.nextInt(upperRight.y);
             unoccupiedPosition = new Vector2D(xCoord,yCoord);
-        } while(this.isOccupied(unoccupiedPosition));
+        } while(this.isOccupied(unoccupiedPosition) || isInSnakeSafeRange(unoccupiedPosition));
         return unoccupiedPosition;
+    }
+
+    public boolean isInSnakeSafeRange(Vector2D position){
+        Vector2D snakeSafeRangeUpperRight = this.snake.getTailPosition().add( new Vector2D(2,2));
+        Vector2D snakeSafeRangeLowerLeft = this.snake.getTailPosition().subtract( new Vector2D(2,2));
+        return position.precedes(snakeSafeRangeUpperRight) && position.follows(snakeSafeRangeLowerLeft);
     }
 
     @Override
@@ -77,10 +88,15 @@ public abstract class AbstractMap2D implements IMap2D{
     }
 
     @Override
-    public void createAnotherApple() {
-        Vector2D newApplePosition = this.findUnoccupiedPosition();
-        Apple anotherApple = new Apple(newApplePosition,this);
-        this.addElement(anotherApple);
+    public void createNewFood() {
+        Vector2D newFoodPosition = this.findUnoccupiedPosition();
+        Eatable newFood;
+        boolean itsApple = this.rand.nextBoolean();
+        if(itsApple)
+            newFood = new Apple(newFoodPosition, this);
+        else
+            newFood = new Bug(newFoodPosition,this);
+        this.addElement(newFood);
     }
 
     @Override
@@ -93,6 +109,8 @@ public abstract class AbstractMap2D implements IMap2D{
     @Override
     public void tick() {
         this.snake.tick();
+        for(Eatable food : this.eatables)
+            food.tick();
     }
 
     @Override
@@ -111,5 +129,22 @@ public abstract class AbstractMap2D implements IMap2D{
 
     public void removeFromHashMap(IMapElement element){
         this.objects.remove(element.getPosition(),element);
+    }
+
+    @Override
+    public Vector2D getLowerLeft() {
+        return this.lowerLeft;
+    }
+
+    @Override
+    public void moveElement(IMapElement elem,Vector2D oldPosition, Vector2D newPosition) {
+        this.objects.remove(oldPosition,elem);
+        this.objects.put(newPosition, elem);
+    }
+
+    public void resetEatables(){
+        for(Eatable food : this.eatables)
+            this.objects.remove(food.getPosition());
+        this.eatables = new ArrayList<>();
     }
 }

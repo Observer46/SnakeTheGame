@@ -13,6 +13,7 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
     private Thread thread;
     public static int score = 0;
     public static boolean gameOver = false;
+    private int ticks = 0;
 
 
     public GameVisualizer(IMap2D map){
@@ -38,9 +39,12 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
     public void stop(){
         this.running = false;
         System.out.println("GAME OVER");
+        this.menu.getScoreText().setText("SCORE: " + score);
+        this.menu.getScoreText().setVisible(true);
         System.out.println("SCORE: " + score);
+        this.menu.getGameOverText().setVisible(true);
         this.menu.getResetButton().setVisible(true);
-        super.repaint();
+        //super.repaint();
 //        try{
 //            thread.join();
 //        } catch (InterruptedException ex){
@@ -76,16 +80,32 @@ public class GameVisualizer extends JPanel implements Runnable, KeyListener {
     @Override
     public void run() {
         while (this.running){
+            //this.ticks++;
+            //if(this.ticks > 500000) {
+//            try {
+//                this.thread.sleep(100);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
             this.map.tick();
-            if (GameVisualizer.gameOver) this.stop();
-
             try {
                 this.thread.sleep(100);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-                ex.getMessage();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+
             super.repaint();
+            if (GameVisualizer.gameOver) this.stop();
+
+                //            try {
+                //                this.thread.sleep(100);
+                //            } catch (InterruptedException ex) {
+                //                ex.printStackTrace();
+                //                ex.getMessage();
+                //            }
+
+               // this.ticks = 0;
+            //}
         }
     }
 

@@ -1,7 +1,6 @@
 import java.awt.*;
 
-public class Apple extends AbstractMapElement {
-
+public class Apple extends AbstractMapElement implements Eatable {
 
     public Apple(Vector2D position, IMap2D map){
         super.position = position;
@@ -17,5 +16,10 @@ public class Apple extends AbstractMapElement {
     @Override
     public void onCollision() {
         super.map.removeElement(this);
+    }
+
+    @Override
+    public void tick() {
+        return;
     }
 }

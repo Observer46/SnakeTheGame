@@ -1,12 +1,12 @@
 public class RectangleMap2D extends AbstractMap2D {
 
 
-    public RectangleMap2D(Vector2D upperRight){
+    public RectangleMap2D(Vector2D upperRight, int obstaclesNumber){
         super.upperRight = upperRight;
         super.startPosition = new Vector2D(upperRight.x/2,upperRight.y/2);
         super.snake = new Snake(super.startPosition,this);
-        super.createAnotherApple();
-        for (int i=0; i<10; i++)
+        super.createNewFood();
+        for (int i=0; i<obstaclesNumber; i++)
             super.createObstacle();
     }
 
@@ -17,5 +17,9 @@ public class RectangleMap2D extends AbstractMap2D {
         GameVisualizer.score = 0;
         GameVisualizer.gameOver = false;
         super.snake = new Snake(super.startPosition, this);
+        super.resetEatables();
+        super.createNewFood();
     }
+
+
 }

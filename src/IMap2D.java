@@ -9,11 +9,14 @@ public interface IMap2D {
      Vector2D findUnoccupiedPosition();
      Map<Vector2D,IMapElement> getObjects();
      Vector2D getUpperRight();
-     void createAnotherApple();
+     void createNewFood();
      void createObstacle();
      void tick();
      Snake getSnake();
      List<Obstacle> getObstacles();
      boolean inBoundaries(Vector2D position);
      void resetMap();
+     void moveElement(IMapElement elem, Vector2D oldPosition, Vector2D newPosition);
+
+     Vector2D getLowerLeft();
 }

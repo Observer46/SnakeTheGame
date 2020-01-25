@@ -10,6 +10,7 @@ public class Snake  {
     private MovementDirection queuedOrientation = null;
 
 
+
     public Snake(Vector2D position, IMap2D map){
         this.map = map;
         Vector2D fixSegmentPosition = new Vector2D(1,0);
@@ -49,7 +50,7 @@ public class Snake  {
         if(this.map.isOccupied(newSnakeSegmentPosition)){
             IMapElement element = (IMapElement) this.map.objectAt(newSnakeSegmentPosition);
             element.onCollision();
-            if (element instanceof Apple) {
+            if (element instanceof Eatable) {
                 this.growSegment = true;
                 GameVisualizer.score++;
             }
@@ -61,7 +62,6 @@ public class Snake  {
         SnakeSegment segmentToDelete = this.snakeSegments.get(0);
         if (!this.growSegment)
             this.map.removeElement(segmentToDelete);
-
         this.map.addElement(movedSegment);
     }
 
